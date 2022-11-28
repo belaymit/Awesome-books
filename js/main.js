@@ -12,9 +12,12 @@ function displayBook() {
   } else {
     let allBook = bookCollection.map(
       (item, index) => `<div class="book">
-    <h3>${item.bookTitle}</h3>
+    <h2>${item.bookTitle}</h2>
       <p>
        ${item.authorName}
+      </p>
+      <p>
+       ${item.isbnNumber}
       </p>
       <button class="removeBookBtn" onclick="removeBook(${index})">Remove</button>
     </div>`,
