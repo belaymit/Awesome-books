@@ -6,24 +6,26 @@ const authorName = document.querySelector('#authorName');
 const isbnNumber = document.querySelector('#isbnNumber');
 const allBooks = document.querySelector('.all-books');
 const removeBookBtn = document.querySelector('.removeBookBtn');
+
 function displayBook() {
-  let htmlGenerate = '';
-  bookCollection.map(
-    (item) =>
-      (htmlGenerate += `<div class="book">
-    <h3>${item.bookTitle}</h3>
+  let allBook = bookCollection.map((item, index) => `<div class="book">
+  <h3>${item.bookTitle}</h3>
     <p>
      ${item.authorName}
     </p>
-    <button class="removeBookBtn">Remove</button>
-  </div>`)
-  );
-  allBooks.innerHTML = htmlGenerate;
+    <button class="removeBookBtn" onclick="removeBook(${index})">Remove</button>
+  </div>`);
+  allBook = allBook.join('');
+  allBooks.innerHTML = allBook;
 }
 
 displayBook();
 
-const removeBook = () => {};
+const removeBook = (bookId) => {
+  bookCollection.splice(bookId, 1);
+  localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
+  displayBook();
+};
 
 const addBook = (e) => {
   e.preventDefault();
@@ -41,3 +43,5 @@ const addBook = (e) => {
 };
 
 submitBtn.addEventListener('click', addBook);
+
+removeBookBtn.addEventListener('click', removeBook(bookCollection.id));
