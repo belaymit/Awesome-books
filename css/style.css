@@ -60,7 +60,8 @@ body {
   font-size: 0.875rem;
 }
 
-.btn {
+.removeBookBtn,
+.submitBtn {
   background-color: #fff;
   border: 1px solid #396df2;
   border-radius: 8px;
@@ -82,7 +83,8 @@ body {
   transition: all 0.5s ease;
 }
 
-.btn:hover {
+.removeBookBtn:hover,
+.submitBtn:hover {
   background: #5076cf;
   color: #fff;
 }
@@ -172,4 +174,10 @@ input::placeholder {
   font-size: 18px;
   padding-top: 12px;
   border-bottom: 0.3px solid #ececee;
+}
+
+.all-books h3 {
+  font-weight: 500;
+  font-size: 16px;
+  padding-left: 12px;
 }
