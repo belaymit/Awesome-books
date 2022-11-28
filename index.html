@@ -17,33 +17,53 @@
   </head>
   <body>
     <section class="container">
-        <div class="book-container">
-          <h1>Awesome books</h1>
-          <div class="all-books">
-            <div class="book">
-              <h3>title</h3>
-              <p>Lorem ipsum dolor, sit amet consectetur 
-                adipisicing elit. Perspiciatis, dolorum!</p>
-                <button class="btn">Remove</button>
+      <div class="book-container">
+        <h1>Awesome books</h1>
+        <div class="all-books">
+          <div class="book">
+            <h3>title</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Perspiciatis, dolorum!
+            </p>
+            <button class="btn">Remove</button>
           </div>
-          </div>  
         </div>
+      </div>
       <div class="form-container">
         <h1>Add Books</h1>
         <form id="book-form" class="book-form">
           <div class="input-field">
-            <input type="text" class="input" name="" id="title" placeholder="Title">
+            <input
+              type="text"
+              class="input"
+              name="bookTitle"
+              id="bookTitle"
+              placeholder="Title"
+            />
           </div>
           <div class="input-field">
-            <input type="text" class="input" name="" id="author" placeholder="Author">
+            <input
+              type="text"
+              class="input"
+              name="authorName"
+              id="authorName"
+              placeholder="Author"
+            />
           </div>
           <div class="input-field">
-            <input type="text" class="input" name="" id="isbn" placeholder="ISBN">
+            <input
+              type="text"
+              class="input"
+              name="isbnNumber"
+              id="isbnNumber"
+              placeholder="ISBN"
+            />
           </div>
           <div class="input-field">
-            <input type="submit" id="submit-btn" value="submit" class="btn">
+            <input type="submit" id="submitBtn" value="submit" class="btn" />
           </div>
-      </form>
+        </form>
       </div>
     </section>
     <script src="./js/main.js"></script>
