@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/1bc3a7e061.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Awesome books: plain JavaScript with objects</title>
+  </head>
+  <body>
+    <section class="container">
+      <div class="book-container">
+        <h1>Awesome books</h1>
+
+        <div class="all-books"></div>
+      </div>
+      <div class="form-container">
+        <h1>Add Books</h1>
+        <form id="book-form" class="book-form">
+          <div class="input-field">
+            <input
+              type="text"
+              class="input"
+              name="bookTitle"
+              id="bookTitle"
+              placeholder="Title"
+            />
+          </div>
+          <div class="input-field">
+            <input
+              type="text"
+              class="input"
+              name="authorName"
+              id="authorName"
+              placeholder="Author"
+            />
+          </div>
+          <div class="input-field">
+            <input
+              type="text"
+              class="input"
+              name="isbnNumber"
+              id="isbnNumber"
+              placeholder="ISBN"
+            />
+          </div>
+          <div class="input-field">
+            <input type="submit" class="submitBtn" id="submitBtn" value="submit" class="btn" />
+          </div>
+        </form>
+      </div>
+    </section>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
