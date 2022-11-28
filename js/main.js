@@ -1,35 +1,34 @@
 let bookCollection = JSON.parse(localStorage.getItem('bookInfo') || '[]');
+
 const submitBtn = document.querySelector('#submitBtn');
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#bookTitle');
 const authorName = document.querySelector('#authorName');
 const isbnNumber = document.querySelector('#isbnNumber');
 const allBooks = document.querySelector('.all-books');
-const removeBookBtn = document.querySelector('.removeBookBtn');
 
 function displayBook() {
-  let allBook = bookCollection.map((item, index) => `<div class="book">
-  <h3>${item.bookTitle}</h3>
-    <p>
-     ${item.authorName}
-    </p>
-    <button class="removeBookBtn" onclick="removeBook(${index})">Remove</button>
-  </div>`);
-  allBook = allBook.join('');
-  allBooks.innerHTML = allBook;
+  if (bookCollection.length <= 0) {
+    allBooks.innerHTML = `<h3 class="no-title">No book available.<br/> Please add a new book.</h3>`;
+  } else {
+    let allBook = bookCollection.map(
+      (item, index) => `<div class="book">
+    <h3>${item.bookTitle}</h3>
+      <p>
+       ${item.authorName}
+      </p>
+      <button class="removeBookBtn" onclick="removeBook(${index})">Remove</button>
+    </div>`
+    );
+    allBook = allBook.join('');
+    allBooks.innerHTML = allBook;
+  }
 }
 
 displayBook();
 
 const removeBook = (bookId) => {
-  // bookCollection.splice(bookId, 1);
-  bookCollection = bookCollection.filter((item, index) => {
-    if(index = bookId){
-      console.log(index+"=false");
-      return false;
-    }
-    return true;
-  });
+  bookCollection = bookCollection.filter((item, index) => index !== bookId);
   localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
   displayBook();
 };
@@ -50,5 +49,3 @@ const addBook = (e) => {
 };
 
 submitBtn.addEventListener('click', addBook);
-
-removeBookBtn.addEventListener('click', removeBook(bookCollection.id));
