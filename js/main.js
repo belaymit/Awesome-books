@@ -1,5 +1,5 @@
-const bookCollection = [];
-
+const bookInfo = JSON.parse(localStorage.getItem('bookInfo') || '[]');
+let bookCollection = bookInfo;
 const submitBtn = document.querySelector('#submitBtn');
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#bookTitle');
@@ -26,6 +26,7 @@ const addBook = (e) => {
     isbnNumber: isbnNumber.value,
   };
   bookCollection.push(addNewBookData);
+  localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
   displayBook();
 };
 
