@@ -1,4 +1,4 @@
-const bookCollection = JSON.parse(localStorage.getItem('bookInfo') || '[]');
+let bookCollection = JSON.parse(localStorage.getItem('bookInfo') || '[]');
 const submitBtn = document.querySelector('#submitBtn');
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#bookTitle');
@@ -22,7 +22,14 @@ function displayBook() {
 displayBook();
 
 const removeBook = (bookId) => {
-  bookCollection.splice(bookId, 1);
+  // bookCollection.splice(bookId, 1);
+  bookCollection = bookCollection.filter((item, index) => {
+    if(index = bookId){
+      console.log(index+"=false");
+      return false;
+    }
+    return true;
+  });
   localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
   displayBook();
 };
