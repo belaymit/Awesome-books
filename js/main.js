@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 const submitBtn = document.querySelector('#submitBtn');
 const bookTitle = document.querySelector('#bookTitle');
 const authorName = document.querySelector('#authorName');
@@ -19,7 +20,8 @@ class Book {
 class BookCollection {
   constructor() {
     const temp = JSON.parse(localStorage.getItem('bookInfo'));
-    this.bookInfo = [...temp.bookInfo];
+    // this.bookInfo = [...temp.bookInfo];
+    this.bookInfo = temp === null ? [] : [...temp.bookInfo];
   }
 
   addBook(id, bookTitle, authorName) {
@@ -28,20 +30,19 @@ class BookCollection {
   }
 
   displayBookCollection() {
-    console.log(this.bookInfo);
-    // if (this.bookInfo.bookInfo.length <= 0) {
-    //   allBooks.innerHTML =
-    //     '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
-    // } else {
-    //   let allBook = this.bookInfo.bookInfo.map(
-    //     (item, index) => `<div class="book-item-container">
-    //     <p>${item.bookTitle} by ${item.authorName}</p>
-    //     <button class="deleteBtn" onclick="removeBook(${index})">Remove</button>
-    //   </div>`
-    //   );
-    //   allBook = allBook.join('');
-    //   allBooks.innerHTML = allBook;
-    // }
+    // console.log(this.bookInfo);
+    if (this.bookInfo.length <= 0) {
+      allBooks.innerHTML = '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
+    } else {
+      let allBook = this.bookInfo.map(
+        (item) => `<div class="book-item-container">
+        <p>${item.title} by ${item.author}</p>
+        <button class="deleteBtn" onclick="removeBook(${item.id})">Remove</button>
+      </div>`,
+      );
+      allBook = allBook.join('');
+      allBooks.innerHTML = allBook;
+    }
   }
 }
 
@@ -59,7 +60,7 @@ const addBook = (e) => {
   if (bookTitle.value && authorName.value && isbnNumber.value) {
     bookCollection.addBook(n, bookTitle.value, authorName.value);
     localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
-    // bookCollection.displayBookCollection();
+    bookCollection.displayBookCollection();
     bookTitle.value = '';
     authorName.value = '';
     isbnNumber.value = '';
