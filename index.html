@@ -8,6 +8,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script
       src="https://kit.fontawesome.com/1bc3a7e061.js"
       crossorigin="anonymous"
@@ -16,15 +23,32 @@
     <title>Awesome books: plain JavaScript with objects</title>
   </head>
   <body>
+    <header class="header">
+      <nav>
+        <div class="nav-center">
+          <div class="nav-header">
+            <div class="logo">
+              <a href="#">
+                <h2>Awesome Books</h2>
+              </a>
+            </div>
+            <div class="nav-toggle">
+              <i class="fa-solid fa-bars"></i>
+              <i class="fa-solid fa-times"></i>
+            </div>
+          </div>
+          <ul class="links">
+            <li class="home"><a href="#about">Home</a></li>
+            <li class="projects"><a href="about.html">About</a></li>
+            <li class="about"><a href="#join">Join</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <section class="container">
-      <div class="book-container">
-        <h1>Awesome books</h1>
-
-        <div class="all-books"></div>
-      </div>
       <div class="form-container">
         <h1>Add Books</h1>
-        <form id="book-form" class="book-form">
+        <form id="book-form" class="book-form" action="post">
           <div class="input-field">
             <input
               type="text"
@@ -58,6 +82,24 @@
         </form>
       </div>
     </section>
+     <!-- FOOTER SECTION -->
+     <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img
+            src="./Images/murple_logo.png"
+            alt="conference-logo"
+          />
+        </div>
+        <div class="footer-content">
+          <p>Copyright © 2022, All Rights Reserved By Microverse</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
+    </footer>
     <script src="./js/main.js"></script>
+    <script src="./js/header.js"></script>
   </body>
 </html>
