@@ -319,9 +319,6 @@ input::placeholder {
 
 .footer {
   height: auto;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background: var(--color-black);
   margin-top: 42px;
