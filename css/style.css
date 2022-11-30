@@ -233,7 +233,6 @@ a {
 }
 
 .container {
-  margin-top: 64px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -244,6 +243,7 @@ a {
 .book-container,
 .contact-container,
 .form-container {
+  height: calc(100vh - 72px);
   background: var(--white-background);
 }
 
@@ -273,7 +273,7 @@ a {
 .form-container h1,
 .form-container {
   padding: 8px 24px;
-  margin-top: 24px;
+  margin: 42px 0;
 }
 
 .book-form .input-field {
@@ -330,7 +330,6 @@ input::placeholder {
   height: auto;
   width: 100%;
   background: var(--color-black);
-  margin-top: 42px;
   color: var(--text-color);
   padding: 32px;
 }
@@ -365,6 +364,11 @@ input::placeholder {
   justify-content: space-between;
   margin: 0 8px;
   padding: 8px 12px;
+}
+
+.book-item-container .book-title {
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .book-item-container:nth-child(odd) {
@@ -410,8 +414,8 @@ input::placeholder {
 }
 
 .contact-container {
-  margin: 64px 12px 0 12px;
-  padding: 8px 24px;
+  margin: 32px 12px;
+  padding: 0 24px;
 }
 
 .contact-container h1 {
@@ -504,13 +508,6 @@ input::placeholder {
     margin-left: 120px;
   }
 
-  .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-
   .footer-container {
     display: flex;
     align-items: center;
@@ -526,7 +523,6 @@ input::placeholder {
   .book-container {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
   }
 
