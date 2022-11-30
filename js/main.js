@@ -50,6 +50,13 @@ const getCurrentTime = () => {
 };
 
 getCurrentTime();
+class Book {
+  constructor(id, title, author) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+  }
+}
 
 class BookCollection {
   constructor() {
@@ -154,3 +161,4 @@ navToggle.addEventListener('click', () => {
   links.classList.toggle('show-links');
   icon.classList.toggle('close-icon');
   openIcon.classList.toggle('open-icon');
+});
