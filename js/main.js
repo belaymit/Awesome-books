@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 const submitBtn = document.querySelector('#submitBtn');
 const bookTitle = document.querySelector('#bookTitle');
 const authorName = document.querySelector('#authorName');
@@ -5,7 +6,7 @@ const isbnNumber = document.querySelector('#isbnNumber');
 const allBooks = document.querySelector('.all-books-container');
 const storage = JSON.parse(localStorage.getItem('bookInfo'));
 
-//set local storage
+// set local storage
 const setLocalStorage = (bookCollection) => {
   localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
 };
@@ -35,12 +36,10 @@ class BookCollection {
       allBooks.innerHTML =
         '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
     } else {
-      let allBook = this.bookInfo.map((item) => {
-        return `<div class="book-item-container">
+      let allBook = this.bookInfo.map((item) => `<div class="book-item-container">
         <p>${item.title} by ${item.author}</p>
         <button class="deleteBtn" id="${item.id}">Remove</button>
-      </div>`;
-      });
+      </div>`);
       allBook = allBook.join('');
       allBooks.innerHTML = allBook;
     }
@@ -64,6 +63,7 @@ const addBook = (e) => {
   // const max = ids.length == 0 ? 0 : Math.max.apply(null, ids) + 1;[1,2,3]
 
   let temp = -1;
+  // eslint-disable-next-line array-callback-return
   bookCollection.bookInfo.map((object) => {
     if (object.id > temp) {
       temp = object.id;
@@ -80,3 +80,28 @@ const addBook = (e) => {
 
 bookCollection.displayBookCollection();
 submitBtn.addEventListener('click', addBook);
+
+const bookList = document.getElementById('nav-booklist');
+const addNewBook = document.getElementById('nav-add');
+const contact = document.getElementById('nav-contact');
+const bookListSection = document.getElementById('bookList');
+const addNewBookSection = document.getElementById('addNewBook');
+const contactSection = document.getElementById('contact');
+
+bookList.addEventListener('click', () => {
+  bookListSection.classList.remove('hidden');
+  addNewBookSection.classList.add('hidden');
+  contactSection.classList.add('hidden');
+});
+
+addNewBook.addEventListener('click', () => {
+  bookListSection.classList.add('hidden');
+  addNewBookSection.classList.remove('hidden');
+  contactSection.classList.add('hidden');
+});
+
+contact.addEventListener('click', () => {
+  bookListSection.classList.add('hidden');
+  addNewBookSection.classList.add('hidden');
+  contactSection.classList.remove('hidden');
+});
