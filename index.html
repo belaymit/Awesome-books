@@ -23,7 +23,7 @@
     <title>Awesome books: plain JavaScript with objects</title>
   </head>
   <body>
-    <!-- <header class="header">
+    <header class="header">
       <nav>
         <div class="nav-center">
           <div class="nav-header">
@@ -38,22 +38,23 @@
             </div>
           </div>
           <ul class="links">
-            <li class="home"><a href="#">Home</a></li><span>|</span>
-            <li class="projects"><a href="booklist.html">List</a></li><span>|</span>
-            <li class="about"><a href="#join">Contact</a></li>
+            <li id="nav-booklist"><a href="#bookList">List</a></li><span>|</span>
+            <li id="nav-add"><a href="#addNewBook">Add New</a></li><span>|</span>
+            <li id="nav-contact"><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-    </header> -->
-  
-    <section class="container">
+    </header>
+  <!-- Book List section -->
+    <section class="container" id="bookList">
       <div class="book-container">
         <h1>All Awesome books</h1>
         <div class="all-books-container">
         </div>
       </div>
     </section>
-    <section class="container">
+    <!-- ADD NEW BOOK -->
+    <section class="container hidden" id="addNewBook">
       <div class="form-container">
         <h1>Add Books</h1>
         <form id="book-form" class="book-form" method="post">
@@ -97,7 +98,7 @@
       </div>
     </section>
     <!-- FOOTER SECTION -->
-    <footer class="footer">
+    <section class="footer hidden" id="contact">
       <div class="footer-container">
         <div class="footer-logo">
           <img src="./Images/murple_logo.png" alt="conference-logo" />
@@ -107,7 +108,7 @@
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
       </div>
-    </footer>
+    </section>
     <script src="./js/main.js"></script>
   </body>
 </html>
