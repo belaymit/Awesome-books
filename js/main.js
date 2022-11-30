@@ -5,7 +5,7 @@ const authorName = document.querySelector('#authorName');
 const isbnNumber = document.querySelector('#isbnNumber');
 const allBooks = document.querySelector('.all-books-container');
 const storage = JSON.parse(localStorage.getItem('bookInfo'));
-
+console.log(new Date());
 // set local storage
 const setLocalStorage = (bookCollection) => {
   localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
@@ -36,10 +36,12 @@ class BookCollection {
       allBooks.innerHTML =
         '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
     } else {
-      let allBook = this.bookInfo.map((item) => `<div class="book-item-container">
+      let allBook = this.bookInfo.map(
+        (item) => `<div class="book-item-container">
         <p>${item.title} by ${item.author}</p>
         <button class="deleteBtn" id="${item.id}">Remove</button>
-      </div>`);
+      </div>`
+      );
       allBook = allBook.join('');
       allBooks.innerHTML = allBook;
     }

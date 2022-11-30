@@ -38,19 +38,22 @@
             </div>
           </div>
           <ul class="links">
-            <li id="nav-booklist"><a href="#bookList" class="active">List</a></li><span>|</span>
-            <li id="nav-add"><a href="#addNewBook">Add New</a></li><span>|</span>
+            <li id="nav-booklist">
+              <a href="#bookList" class="active">List</a>
+            </li>
+            <span>|</span>
+            <li id="nav-add"><a href="#addNewBook">Add New</a></li>
+            <span>|</span>
             <li id="nav-contact"><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
     </header>
-  <!-- Book List section -->
+    <!-- Book List section -->
     <section class="container" id="bookList">
       <div class="book-container">
         <h1>All Awesome books</h1>
-        <div class="all-books-container">
-        </div>
+        <div class="all-books-container"></div>
       </div>
     </section>
     <!-- ADD NEW BOOK -->
@@ -97,8 +100,21 @@
         </form>
       </div>
     </section>
+
+    <section class="hidden container" id="contact">
+      <div class="contact-container">
+        <h1>Contact information</h1>
+        <p>Do have any questions or you just want to say "Hello"?</p>
+        <p>You can reach out to us!</p>
+        <ul>
+          <li>Our e-mail:example@mail.email.com</li>
+          <li>Our phone number: +880000000</li>
+          <li>Our address: Microverse, San francisco</li>
+        </ul>
+      </div>
+    </section>
     <!-- FOOTER SECTION -->
-    <section class="footer hidden" id="contact">
+    <footer class="footer hidden" id="contact">
       <div class="footer-container">
         <div class="footer-logo">
           <img src="./Images/murple_logo.png" alt="conference-logo" />
@@ -108,7 +124,7 @@
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
       </div>
-    </section>
+    </footer>
     <script src="./js/main.js"></script>
   </body>
 </html>

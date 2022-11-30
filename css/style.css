@@ -242,6 +242,7 @@ a {
 }
 
 .book-container,
+contact-container,
 .form-container {
   background: var(--white-background);
 }
@@ -492,4 +493,24 @@ input::placeholder {
   .footer-container {
     margin: auto 124px;
   }
+}
+
+.contact-container {
+  margin: 0 auto;
+  margin-top: 64px;
+  width: 60%;
+  padding: 8px 24px;
+}
+
+.contact-container  h1{
+  text-align: center;
+  margin: 24px 0;
+}
+.contact-container  ul{
+  margin-top: 16px;
+}
+
+.contact-container li {
+  list-style: circle;
+  margin-left: 32px;
 }
