@@ -35,19 +35,20 @@ const getCurrentTime = () => {
     hour12: true,
   });
   let temp = '';
-  if (currentDate == 1) {
+  if (currentDate === 1) {
     temp = 'st';
-  } else if (currentDate == 2) {
+  } else if (currentDate === 2) {
     temp = 'nd';
-  } else if (currentDate == 3) {
+  } else if (currentDate === 3) {
     temp = 'rd';
   } else {
     temp = 'th';
   }
   document.querySelector(
-    '#current-time'
+    '#current-time',
   ).innerText = `${currentMonth} ${currentDate}${temp}  ${currentYear}, ${currentTime}`;
 };
+
 getCurrentTime();
 class Book {
   constructor(id, title, author) {
@@ -71,14 +72,13 @@ class BookCollection {
 
   displayBookCollection() {
     if (this.bookInfo.length <= 0) {
-      allBooks.innerHTML =
-        '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
+      allBooks.innerHTML = '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
     } else {
       let allBook = this.bookInfo.map(
         (item) => `<div class="book-item-container">
         <p>${item.title} by ${item.author}</p>
         <button class="deleteBtn" id="${item.id}">Remove</button>
-      </div>`
+      </div>`,
       );
       allBook = allBook.join('');
       allBooks.innerHTML = allBook;
@@ -98,9 +98,6 @@ const bookCollection = new BookCollection();
 
 const addBook = (e) => {
   e.preventDefault();
-
-  // const ids = bookCollection.bookInfo.map((object) => object.id); [1,2,3]
-  // const max = ids.length == 0 ? 0 : Math.max.apply(null, ids) + 1;[1,2,3]
 
   let temp = -1;
   // eslint-disable-next-line array-callback-return
@@ -153,4 +150,15 @@ contact.addEventListener('click', () => {
   bookListSection.classList.add('hidden');
   addNewBookSection.classList.add('hidden');
   contactSection.classList.remove('hidden');
+});
+
+const navToggle = document.querySelector('.nav-toggle');
+const links = document.querySelector('.links');
+const icon = navToggle.querySelector('.fa-times');
+const openIcon = navToggle.querySelector('.fa-bars');
+
+navToggle.addEventListener('click', () => {
+  links.classList.toggle('show-links');
+  icon.classList.toggle('close-icon');
+  openIcon.classList.toggle('open-icon');
 });
