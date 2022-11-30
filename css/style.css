@@ -135,7 +135,7 @@ a {
 
 .header nav .nav-center .links a {
   color: #273746;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-transform: capitalize;
   letter-spacing: 0.1rem;
   display: block;
@@ -179,12 +179,12 @@ a {
   transition: all 0.5s linear;
 }
 
-/*.header nav .nav-center .links a:hover {
+/* .header nav .nav-center .links a:hover {
   color: #a12c0f;
   padding-left: 1.5rem;
   border: 3px solid #a12c0f;
   border-radius: 3px;
-}*/
+} */
 
 .header nav .nav-center .links.show-links {
   position: absolute;
@@ -242,7 +242,7 @@ a {
 }
 
 .book-container,
-contact-container,
+.contact-container,
 .form-container {
   background: var(--white-background);
 }
@@ -401,6 +401,40 @@ input::placeholder {
   display: none;
 }
 
+#current-time {
+  margin: 120px 12px 0 12px;
+  text-align: right;
+  padding: 0 1.5rem;
+  align-self: flex-end;
+  font-size: 16px;
+}
+
+.contact-container {
+  margin: 64px 12px 0 12px;
+  padding: 8px 24px;
+}
+
+.contact-container h1 {
+  text-align: center;
+  font-size: 28px;
+  margin: 24px 0;
+}
+
+.contact-container p {
+  font-size: 18px;
+  margin-left: 32px;
+}
+
+.contact-container ul {
+  margin-top: 16px;
+}
+
+.contact-container li {
+  list-style: circle;
+  margin-left: 32px;
+  font-size: 16px;
+}
+
 @media (min-width: 480px) {
   .footer-container {
     margin: auto 42px;
@@ -448,11 +482,12 @@ input::placeholder {
   .header nav .nav-center .links {
     height: auto;
     display: flex;
+    gap: 12px;
     list-style: none;
   }
 
   .header nav .nav-center .links a {
-    padding: 0;
+    padding: 0 8px;
     margin: 0 0.5rem;
   }
 
@@ -463,6 +498,17 @@ input::placeholder {
 
   .headline-container .headline {
     padding: 60px 120px 24px 120px;
+  }
+
+  #current-time {
+    margin-left: 120px;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
 
   .footer-container {
@@ -483,6 +529,10 @@ input::placeholder {
     justify-content: center;
     flex-direction: column;
   }
+
+  .contact-container {
+    width: 60%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -493,32 +543,4 @@ input::placeholder {
   .footer-container {
     margin: auto 124px;
   }
-}
-
-.contact-container {
-  margin: 0 auto;
-  margin-top: 64px;
-  width: 60%;
-  padding: 8px 24px;
-}
-
-.contact-container  h1{
-  text-align: center;
-  margin: 24px 0;
-}
-.contact-container  ul{
-  margin-top: 16px;
-}
-
-.contact-container li {
-  list-style: circle;
-  margin-left: 32px;
-}
-
-#current-time{
-  margin: 0 120px;
-  margin-top: 69px;
-  text-align: right;
-  padding: 0 1.5rem;
-  align-self: flex-end;
 }
