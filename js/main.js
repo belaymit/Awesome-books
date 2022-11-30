@@ -1,14 +1,10 @@
-// eslint-disable-next-line max-classes-per-file
 const submitBtn = document.querySelector('#submitBtn');
 const bookTitle = document.querySelector('#bookTitle');
 const authorName = document.querySelector('#authorName');
 const isbnNumber = document.querySelector('#isbnNumber');
 const allBooks = document.querySelector('.all-books-container');
-console.log(allBooks);
-// let n = 0;
-// if (bookCollection.length > 0) {
-//   n = bookCollection[bookCollection.length - 1];
-// }
+const storage = JSON.parse(localStorage.getItem('bookInfo'));
+let books = storage === null ? [] : storage;
 class Book {
   constructor(id, title, author) {
     this.id = id;
@@ -19,38 +15,50 @@ class Book {
 
 class BookCollection {
   constructor() {
-    const temp = JSON.parse(localStorage.getItem('bookInfo'));
-    // this.bookInfo = [...temp.bookInfo];
-    this.bookInfo = temp === null ? [] : [...temp.bookInfo];
   }
 
   addBook(id, bookTitle, authorName) {
     const newBook = new Book(id, bookTitle, authorName);
-    this.bookInfo.push(newBook);
+    books.push(newBook);
   }
 
   displayBookCollection() {
-    // console.log(this.bookInfo);
-    if (this.bookInfo.length <= 0) {
+    if (books.length <= 0) {
       allBooks.innerHTML = '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
-    } else {
-      let allBook = this.bookInfo.map(
-        (item) => `<div class="book-item-container">
+      } else {
+        let num = 0;
+        console.log(books)
+      let allBook = books.map(
+        (item) => {
+          num++;
+          console.log(num)
+          console.log(item)
+          return `<div class="book-item-container">
         <p>${item.title} by ${item.author}</p>
-        <button class="deleteBtn" onclick="removeBook(${item.id})">Remove</button>
-      </div>`,
+        <button class="deleteBtn" id="${item.id}">Remove</button>
+      </div>`
+        }
       );
       allBook = allBook.join('');
       allBooks.innerHTML = allBook;
     }
+    document.querySelectorAll('.deleteBtn').forEach((element) => {
+      element.addEventListener('click', (e) => {
+        const bookId = parseInt(e.target.id, 10);
+        books = books.filter(item => item.id !== bookId);
+        localStorage.setItem('bookInfo', JSON.stringify(books));
+      });
+    });
   }
+  
+  //displayBookCollection()
 }
 
 const bookCollection = new BookCollection();
 
-let n = 0;
-if (bookCollection.bookInfo.length > 0) {
-  n = bookCollection.bookInfo.length;
+let n = -1;
+if (books.length > 0) {
+  n = books[books.length-1].id;
 }
 
 const addBook = (e) => {
@@ -59,7 +67,7 @@ const addBook = (e) => {
 
   if (bookTitle.value && authorName.value && isbnNumber.value) {
     bookCollection.addBook(n, bookTitle.value, authorName.value);
-    localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
+    localStorage.setItem('bookInfo', JSON.stringify(books));
     bookCollection.displayBookCollection();
     bookTitle.value = '';
     authorName.value = '';
