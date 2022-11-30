@@ -10,22 +10,6 @@ function Storage(books) {
 
 const books = JSON.parse(localStorage.getItem('books')) || [];
 
-const displayBookCollection = () => {
-  Storage(books);
-  if (books.length <= 0) {
-    allBooks.innerHTML = '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
-  } else {
-    let allBook = books.map(
-      (item, index) => `<div class="book-item-container">
-      <p> <span class="book-title">${item.title}</span> <span>by ${item.author}</span></p>
-      <button onclick=Book.removeBooks(${index}) class="deleteBtn">Remove</button>
-    </div>`,
-    );
-    allBook = allBook.join('');
-    allBooks.innerHTML = allBook;
-  }
-};
-
 class Book {
   constructor(title, author, isbn) {
     this.title = title;
@@ -43,6 +27,22 @@ class Book {
   }
 }
 
+const displayBookCollection = () => {
+  Storage(books);
+  if (books.length <= 0) {
+    allBooks.innerHTML = '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
+  } else {
+    let allBook = books.map(
+      (item, index) => `<div class="book-item-container">
+      <p> <span class="book-title">${item.title}</span> <span>by ${item.author}</span></p>
+      <button onclick=Book.removeBooks(${index}) class="deleteBtn">Remove</button>
+    </div>`,
+    );
+    allBook = allBook.join('');
+    allBooks.innerHTML = allBook;
+  }
+};
+
 displayBookCollection();
 
 submitBtn.addEventListener('click', (e) => {
@@ -51,7 +51,7 @@ submitBtn.addEventListener('click', (e) => {
     return false;
   }
   const book = new Book(bookTitle.value, authorName.value, isbnNumber.value);
-  books.push(book);
+  book.addBook();
   displayBookCollection();
   bookTitle.value = '';
   authorName.value = '';
