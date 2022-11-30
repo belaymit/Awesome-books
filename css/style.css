@@ -514,3 +514,11 @@ input::placeholder {
   list-style: circle;
   margin-left: 32px;
 }
+
+#current-time{
+  margin: 0 120px;
+  margin-top: 69px;
+  text-align: right;
+  padding: 0 1.5rem;
+  align-self: flex-end;
+}

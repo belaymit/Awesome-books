@@ -5,12 +5,50 @@ const authorName = document.querySelector('#authorName');
 const isbnNumber = document.querySelector('#isbnNumber');
 const allBooks = document.querySelector('.all-books-container');
 const storage = JSON.parse(localStorage.getItem('bookInfo'));
-console.log(new Date());
 // set local storage
 const setLocalStorage = (bookCollection) => {
   localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
 };
-
+const getCurrentTime = () => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const date = new Date();
+  const currentMonth = months[date.getMonth()];
+  const currentDate = date.getDate();
+  const currentYear = date.getFullYear();
+  const currentTime = date.toLocaleString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: '2-digit',
+    hour12: true,
+  });
+  let temp = '';
+  if (currentDate == 1) {
+    temp = 'st';
+  } else if (currentDate == 2) {
+    temp = 'nd';
+  } else if (currentDate == 3) {
+    temp = 'rd';
+  } else {
+    temp = 'th';
+  }
+  document.querySelector(
+    '#current-time'
+  ).innerText = `${currentMonth} ${currentDate}${temp}  ${currentYear}, ${currentTime}`;
+};
+getCurrentTime();
 class Book {
   constructor(id, title, author) {
     this.id = id;
