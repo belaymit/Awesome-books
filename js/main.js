@@ -76,7 +76,7 @@ class BookCollection {
     } else {
       let allBook = this.bookInfo.map(
         (item) => `<div class="book-item-container">
-        <p>${item.title} by ${item.author}</p>
+        <p><span class="book-title">${item.title}</span> by ${item.author}</p>
         <button class="deleteBtn" id="${item.id}">Remove</button>
       </div>`,
       );
