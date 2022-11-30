@@ -233,8 +233,7 @@ a {
 }
 
 .container {
-  margin-top: 64px;
-  width: 100%;
+  margin: 64px 12px 0 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -280,6 +279,13 @@ a {
   display: flex;
   align-items: center;
   padding: 0 24px 18px 24px;
+}
+
+.input-field.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 0;
 }
 
 .book-form .input-field .input {
@@ -351,7 +357,7 @@ input::placeholder {
   background: #fff;
   border: 0.5px solid #272a31;
   border-radius: 12px;
-  margin: 24px;
+  margin: 12px;
 }
 
 .book-container {
@@ -369,6 +375,11 @@ input::placeholder {
 
 .book-item-container:nth-child(odd) {
   background-color: #f7f7f9;
+}
+
+.book-item-container .book-title {
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .deleteBtn {
@@ -448,7 +459,7 @@ input::placeholder {
   }
 
   .all-books-container {
-    width: 50%;
+    width: 100%;
   }
 
   .header nav .nav-center {
@@ -524,10 +535,12 @@ input::placeholder {
   }
 
   .book-container {
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 0 24px;
   }
 
   .contact-container {
