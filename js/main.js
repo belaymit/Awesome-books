@@ -26,13 +26,8 @@ class BookCollection {
     if (books.length <= 0) {
       allBooks.innerHTML = '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
       } else {
-        let num = 0;
-        console.log(books)
       let allBook = books.map(
         (item) => {
-          num++;
-          console.log(num)
-          console.log(item)
           return `<div class="book-item-container">
         <p>${item.title} by ${item.author}</p>
         <button class="deleteBtn" id="${item.id}">Remove</button>
@@ -47,6 +42,7 @@ class BookCollection {
         const bookId = parseInt(e.target.id, 10);
         books = books.filter(item => item.id !== bookId);
         localStorage.setItem('bookInfo', JSON.stringify(books));
+        this.displayBookCollection();
       });
     });
   }
