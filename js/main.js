@@ -1,57 +1,59 @@
-let bookCollection = JSON.parse(localStorage.getItem('bookInfo') || '[]');
-
 const submitBtn = document.querySelector('#submitBtn');
 const bookTitle = document.querySelector('#bookTitle');
 const authorName = document.querySelector('#authorName');
 const isbnNumber = document.querySelector('#isbnNumber');
-const allBooks = document.querySelector('.all-books');
+const allBooks = document.querySelector('.all-books-container');
 
-function displayBook() {
-  if (bookCollection.length <= 0) {
+function Storage(books) {
+  localStorage.setItem('books', JSON.stringify(books));
+}
+const books = JSON.parse(localStorage.getItem('books')) || [];
+
+const displayBookCollection = () => {
+  Storage(books);
+  if (books.length <= 0) {
     allBooks.innerHTML = '<h3 class="no-title">No book available.<br/> Please add a new book.</h3>';
   } else {
-    let allBook = bookCollection.map(
-      (item, index) => `<div class="book">
-    <h2>${item.bookTitle}</h2>
-      <p>
-       ${item.authorName}
-      </p>
-      <p>
-       ${item.isbnNumber}
-      </p>
-      <button class="removeBookBtn" onclick="removeBook(${index})">Remove</button>
+    let allBook = books.map(
+      (item, index) => `<div class="book-item-container">
+      <p> <span class="book-title">${item.title}</span> <span>by ${item.author}</span></p>
+      <button onclick=Book.removeBooks(${index}) class="deleteBtn">Remove</button>
     </div>`,
     );
     allBook = allBook.join('');
     allBooks.innerHTML = allBook;
   }
+};
+
+class Book {
+  constructor(title, author, isbn) {
+    this.title = title;
+    this.author = author;
+    this.isbn = isbn;
+  }
+
+  addBook() {
+    books.push(this);
+  }
+
+  static removeBooks(index) {
+    books.splice(index, 1);
+    displayBookCollection();
+  }
 }
 
-displayBook();
+displayBookCollection();
 
-// eslint-disable-next-line no-unused-vars
-const removeBook = (bookId) => {
-  bookCollection = bookCollection.filter((item, index) => index !== bookId);
-  localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
-  displayBook();
-};
-
-const addBook = (e) => {
+submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  const addNewBookData = {
-    bookTitle: bookTitle.value,
-    authorName: authorName.value,
-    isbnNumber: isbnNumber.value,
-  };
-
-  if (bookTitle.value && authorName.value && isbnNumber.value) {
-    bookCollection.push(addNewBookData);
-    localStorage.setItem('bookInfo', JSON.stringify(bookCollection));
-    displayBook();
-    bookTitle.value = '';
-    authorName.value = '';
-    isbnNumber.value = '';
+  if (bookTitle.value === '' && authorName.value === '' && isbnNumber === '') {
+    return false;
   }
-};
-
-submitBtn.addEventListener('click', addBook);
+  const book = new Book(bookTitle.value, authorName.value, isbnNumber.value);
+  book.addBook();
+  displayBookCollection();
+  bookTitle.value = '';
+  authorName.value = '';
+  isbnNumber.value = '';
+  return true;
+});

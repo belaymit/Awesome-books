@@ -39,7 +39,7 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+  <!-- - [🚀 Live Demo](#live-demo) -->
   
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -53,14 +53,14 @@ After you're finished please remove all the comments and instructions!
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
+<!-- - [❓ FAQ](#faq) -->
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Awesome-books <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
+<!-- > Describe your project in 1 or 2 sentences. -->
 
 **Awesome-books:plain JavaScript with objects**  implemented using HTML, CSS and javaScript.
 
@@ -89,9 +89,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+<!-- ## 🚀 Live Demo <a name="live-demo"></a> -->
 
-## Video Description <a name="video-description"></a>
+<!-- ## Video Description <a name="video-description"></a> -->
 
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -193,7 +193,7 @@ If you like this project give it a star!
 
 <!-- FAQ (optional) -->
 
-## ❓ FAQ <a name="faq"></a>
+<!-- ## ❓ FAQ <a name="faq"></a> -->
 
 
 <!-- LICENSE -->

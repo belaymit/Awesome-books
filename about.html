@@ -20,10 +20,11 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/about.css" />
     <title>Awesome books: plain JavaScript with objects</title>
   </head>
   <body>
-    <!-- <header class="header">
+    <header class="header">
       <nav>
         <div class="nav-center">
           <div class="nav-header">
@@ -38,63 +39,32 @@
             </div>
           </div>
           <ul class="links">
-            <li class="home"><a href="#">Home</a></li><span>|</span>
-            <li class="projects"><a href="booklist.html">List</a></li><span>|</span>
-            <li class="about"><a href="#join">Contact</a></li>
+            <li class="home"><a href="index.html">Home</a></li>
+            <li class="projects"><a href="about.html">About</a></li>
+            <li class="about"><a href="#join">Join</a></li>
           </ul>
         </div>
       </nav>
-    </header> -->
-  
+    </header>
     <section class="container">
       <div class="book-container">
         <h1>All Awesome books</h1>
         <div class="all-books-container">
+          <!-- <div class="book-item-container">
+            <p>The Law of Garbage Truck by Jane Doe</p>
+            <button>Remove</button>
+          </div>
+          <div class="book-item-container">
+            <p>The Law of Garbage Truck by Jane Doe</p>
+            <button>Remove</button>
+          </div>
+          <div class="book-item-container">
+            <p>The Law of Garbage Truck by Jane Doe</p>
+            <button>Remove</button>
+          </div> -->
         </div>
       </div>
-    </section>
-    <section class="container">
-      <div class="form-container">
-        <h1>Add Books</h1>
-        <form id="book-form" class="book-form" method="post">
-          <div class="input-field">
-            <input
-              type="text"
-              class="input"
-              name="bookTitle"
-              id="bookTitle"
-              placeholder="Title"
-            />
-          </div>
-          <div class="input-field">
-            <input
-              type="text"
-              class="input"
-              name="authorName"
-              id="authorName"
-              placeholder="Author"
-            />
-          </div>
-          <div class="input-field">
-            <input
-              type="text"
-              class="input"
-              name="isbnNumber"
-              id="isbnNumber"
-              placeholder="ISBN"
-            />
-          </div>
-          <div class="input-field submit-btn">
-            <input
-              type="submit"
-              class="submitBtn"
-              id="submitBtn"
-              value="submit"
-              class="btn"
-            />
-          </div>
-        </form>
-      </div>
+      <!-- <button class="removeBookBtn" onclick="removeBook(${index})">Remove</button> -->
     </section>
     <!-- FOOTER SECTION -->
     <footer class="footer">
@@ -103,11 +73,12 @@
           <img src="./Images/murple_logo.png" alt="conference-logo" />
         </div>
         <div class="footer-content">
-          <p>Copyright © 2022, All Rights Reserved By Microverse</p>
+          <p>Copyright © 2022, All Rights Reserved By Conferencefora</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
       </div>
     </footer>
     <script src="./js/main.js"></script>
+    <script src="./js/header.js"></script>
   </body>
 </html>
