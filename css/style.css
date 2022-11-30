@@ -135,7 +135,7 @@ a {
 
 .header nav .nav-center .links a {
   color: #273746;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-transform: capitalize;
   letter-spacing: 0.1rem;
   display: block;
@@ -179,12 +179,12 @@ a {
   transition: all 0.5s linear;
 }
 
-.header nav .nav-center .links a:hover {
+/* .header nav .nav-center .links a:hover {
   color: #a12c0f;
   padding-left: 1.5rem;
   border: 3px solid #a12c0f;
   border-radius: 3px;
-}
+} */
 
 .header nav .nav-center .links.show-links {
   position: absolute;
@@ -204,6 +204,13 @@ a {
 .nav-center .links.show-links li a:hover {
   background: #a12c0f;
   color: inherit;
+}
+
+.active {
+  color: #a12c0f;
+  padding-left: 1.5rem;
+  border: 3px solid #a12c0f;
+  border-radius: 3px;
 }
 
 .nav-toggle .fa-times {
@@ -226,7 +233,7 @@ a {
 }
 
 .container {
-  margin: 64px 12px 0 12px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -234,7 +241,9 @@ a {
 }
 
 .book-container,
+.contact-container,
 .form-container {
+  height: calc(100vh - 72px);
   background: var(--white-background);
 }
 
@@ -264,20 +273,13 @@ a {
 .form-container h1,
 .form-container {
   padding: 8px 24px;
-  margin-top: 24px;
+  margin: 42px 0;
 }
 
 .book-form .input-field {
   display: flex;
   align-items: center;
   padding: 0 24px 18px 24px;
-}
-
-.input-field.submit-btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-top: 0;
 }
 
 .book-form .input-field .input {
@@ -328,7 +330,6 @@ input::placeholder {
   height: auto;
   width: 100%;
   background: var(--color-black);
-  margin-top: 42px;
   color: var(--text-color);
   padding: 32px;
 }
@@ -349,7 +350,7 @@ input::placeholder {
   background: #fff;
   border: 0.5px solid #272a31;
   border-radius: 12px;
-  margin: 12px;
+  margin: 24px;
 }
 
 .book-container {
@@ -365,13 +366,13 @@ input::placeholder {
   padding: 8px 12px;
 }
 
-.book-item-container:nth-child(odd) {
-  background-color: #f7f7f9;
+.book-item-container .book-title {
+  font-size: 18px;
+  font-weight: 500;
 }
 
-.book-item-container .book-title {
-  font-weight: 500;
-  font-size: 18px;
+.book-item-container:nth-child(odd) {
+  background-color: #f7f7f9;
 }
 
 .deleteBtn {
@@ -400,6 +401,44 @@ input::placeholder {
   border: 1px solid #055f6b;
 }
 
+.hidden {
+  display: none;
+}
+
+#current-time {
+  margin: 120px 12px 0 12px;
+  text-align: right;
+  padding: 0 1.5rem;
+  align-self: flex-end;
+  font-size: 16px;
+}
+
+.contact-container {
+  margin: 32px 12px;
+  padding: 0 24px;
+}
+
+.contact-container h1 {
+  text-align: center;
+  font-size: 28px;
+  margin: 24px 0;
+}
+
+.contact-container p {
+  font-size: 18px;
+  margin-left: 32px;
+}
+
+.contact-container ul {
+  margin-top: 16px;
+}
+
+.contact-container li {
+  list-style: circle;
+  margin-left: 32px;
+  font-size: 16px;
+}
+
 @media (min-width: 480px) {
   .footer-container {
     margin: auto 42px;
@@ -413,7 +452,7 @@ input::placeholder {
   }
 
   .all-books-container {
-    width: 100%;
+    width: 50%;
   }
 
   .header nav .nav-center {
@@ -447,11 +486,12 @@ input::placeholder {
   .header nav .nav-center .links {
     height: auto;
     display: flex;
+    gap: 12px;
     list-style: none;
   }
 
   .header nav .nav-center .links a {
-    padding: 0;
+    padding: 0 8px;
     margin: 0 0.5rem;
   }
 
@@ -462,6 +502,10 @@ input::placeholder {
 
   .headline-container .headline {
     padding: 60px 120px 24px 120px;
+  }
+
+  #current-time {
+    margin-left: 120px;
   }
 
   .footer-container {
@@ -477,12 +521,13 @@ input::placeholder {
   }
 
   .book-container {
-    width: 60%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    padding: 0 24px;
+  }
+
+  .contact-container {
+    width: 60%;
   }
 }
 

@@ -23,7 +23,7 @@
     <title>Awesome books: plain JavaScript with objects</title>
   </head>
   <body>
-    <!-- <header class="header">
+    <header class="header">
       <nav>
         <div class="nav-center">
           <div class="nav-header">
@@ -38,22 +38,27 @@
             </div>
           </div>
           <ul class="links">
-            <li class="home"><a href="#">Home</a></li><span>|</span>
-            <li class="projects"><a href="booklist.html">List</a></li><span>|</span>
-            <li class="about"><a href="#join">Contact</a></li>
+            <li id="nav-booklist">
+              <a href="#bookList" class="active">List</a>
+            </li>
+            <span>|</span>
+            <li id="nav-add"><a href="#addNewBook">Add New</a></li>
+            <span>|</span>
+            <li id="nav-contact"><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-    </header> -->
-  
-    <section class="container">
+      <p id="current-time">March 19th 2021, 9:25:32 am</p>
+    </header>
+    <!-- Book List section -->
+    <section class="container" id="bookList">
       <div class="book-container">
         <h1>All Awesome books</h1>
-        <div class="all-books-container">
-        </div>
+        <div class="all-books-container"></div>
       </div>
     </section>
-    <section class="container">
+    <!-- ADD NEW BOOK -->
+    <section class="container hidden" id="addNewBook">
       <div class="form-container">
         <h1>Add Books</h1>
         <form id="book-form" class="book-form" method="post">
@@ -84,7 +89,7 @@
               placeholder="ISBN"
             />
           </div>
-          <div class="input-field submit-btn">
+          <div class="input-field">
             <input
               type="submit"
               class="submitBtn"
@@ -94,6 +99,19 @@
             />
           </div>
         </form>
+      </div>
+    </section>
+
+    <section class="hidden container" id="contact">
+      <div class="contact-container">
+        <h1>Contact information</h1>
+        <p>Do have any questions or you just want to say "Hello"?</p>
+        <p>You can reach out to us!</p>
+        <ul>
+          <li>Our e-mail:example@mail.email.com</li>
+          <li>Our phone number: +880000000</li>
+          <li>Our address: Microverse, San francisco</li>
+        </ul>
       </div>
     </section>
     <!-- FOOTER SECTION -->
