@@ -179,12 +179,12 @@ a {
   transition: all 0.5s linear;
 }
 
-.header nav .nav-center .links a:hover {
+/*.header nav .nav-center .links a:hover {
   color: #a12c0f;
   padding-left: 1.5rem;
   border: 3px solid #a12c0f;
   border-radius: 3px;
-}
+}*/
 
 .header nav .nav-center .links.show-links {
   position: absolute;
@@ -204,6 +204,13 @@ a {
 .nav-center .links.show-links li a:hover {
   background: #a12c0f;
   color: inherit;
+}
+
+.active {
+  color: #a12c0f;
+  padding-left: 1.5rem;
+  border: 3px solid #a12c0f;
+  border-radius: 3px;
 }
 
 .nav-toggle .fa-times {
